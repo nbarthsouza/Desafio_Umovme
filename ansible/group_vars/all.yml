@@ -1,0 +1,5 @@
+---
+default_github: https://github.com/umovme/umovme-scaffold.git
+default_application_name: umovmetraining/umovme-scaffold
+default_repo_folder: /opt/private-repo
+repository_docker: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable

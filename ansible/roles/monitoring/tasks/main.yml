@@ -1,0 +1,17 @@
+- name: Create container Grafana
+  docker_container:
+    name: grafana
+    image: grafana/grafana
+    ports:
+      - 3000:3000
+    state: started
+  become: yes
+
+- name: Configure prometheus
+  template:
+    src: 'templates/prometheus.yml.j2'
+    dest: '/tmp/prometheus.yml'
+  become: yes
+
+- name: Create container Prometheus
+  shell: sudo docker run -d --name=prometheus -p 9000:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml

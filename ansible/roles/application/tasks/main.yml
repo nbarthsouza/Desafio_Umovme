@@ -1,0 +1,33 @@
+- name: Clone a private repository into /opt.
+  git:
+    repo: "{{ default_github }}"
+    dest: "{{ default_repo_folder }}"
+    accept_hostkey: yes
+  # ssh-agent doesn't allow key to pass through remote sudo commands.
+  become: yes
+
+- name: build container image
+  docker_image:
+    name: "{{ default_application_name }}"
+    build:
+      path: "{{ default_repo_folder }}"
+      pull: yes
+    source: build
+    state: present
+  become: yes
+
+- name: Pull Docker image
+  docker_image:
+    name: "{{ default_application_name }}"
+    source: pull
+  become: yes
+
+- name: Create container
+  docker_container:
+    name: test
+    image: "{{ default_application_name }}"
+    ports:
+      - 80:8080
+      - 9090:9090
+    state: started
+  become: yes

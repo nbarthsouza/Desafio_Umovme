@@ -1,0 +1,11 @@
+---
+- name: Run the equivalent of "apt-get update"
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+
+- name: Update all packages to their latest version
+  apt:
+    upgrade: dist
+  become: yes
