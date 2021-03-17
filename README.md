@@ -1,4 +1,4 @@
-# Desafio_Umovme
+Desafio Umovme
 ------------------------
 
 Como estou utilizando uma máquina com SO Windows, criei uma máquina virtual Linux, Distro Ubuntu, com o Vagrant.
@@ -10,7 +10,7 @@ Como Testar
 
 Acessar no navegador: http://3.14.71.25, se for exibido o nome do App e a versão, funcionou!
 
-Você pode acessar também: http://3.14.71.25/ola?name=, se for exibido Olá, funcionou!
+Você pode acessar também: http://3.14.71.25/hello?name=, se for exibido Hello, funcionou!
 
 Acesse também: http://3.14.71.25:9090/metrics, e será exibido as métricas do App.
 
