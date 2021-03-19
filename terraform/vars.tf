@@ -22,15 +22,15 @@ variable "instance_name" {
     default = "prod_umovme"
 }
 
-variable "playbook_locate" {
+variable "playbook_location" {
     default = "/vagrant/ansible/provisioning.yml"
 }
 
-variable "hosts_locate" {
+variable "hosts_location" {
     default = "/vagrant/ansible/hosts"
 }
 
-variable "key_locate" {
+variable "key_location" {
     default = "~/terraform-aws"
 }
 
